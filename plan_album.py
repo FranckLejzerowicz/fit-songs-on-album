@@ -4,12 +4,11 @@ import itertools
 import argparse
 
 __author__ = "Franck Lejzerowicz"
-__copyright__ = "Copyright 2017, The Deep-Sea Microbiome Project"
-__credits__ = ["Yoann Dufresne", "Jan Pawlowski"]
+__copyright__ = "Copyright 2017, mx3.ch/taverniers"
 __license__ = "GPL V3"
 __version__ = "1.0"
 __maintainer__ = "Franck Lejzerowicz"
-__email__ = "franck.lejzerowicz@unige.ch"
+__email__ = "frankwe@hotmail.fr"
 
 def fit_songs_on_album_():
     parser=argparse.ArgumentParser()
