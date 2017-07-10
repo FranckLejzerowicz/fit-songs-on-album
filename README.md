@@ -1,6 +1,7 @@
 # plan_album
 Give you songs durations and get possibilities for how they fit on a vinyl album (33 or 45 rmp; 7, 10 or 12')
-This script would help loose music bands without a major edition house that would decide for then how to fit their songs on a vinyl of a given time space in order to release an album LP or EP...
+
+This script would help loose music bands without the help of a major label and thus house that would like to decide for themselves how to fit their songs on a vinyl of a given time space in order to release an LP or EP. Hope that helps!
 
 ## Usage
 ```
