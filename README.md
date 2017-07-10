@@ -1,5 +1,6 @@
-# fit-songs-on-album
+# plan_album
 Give you songs durations and get possibilities for how they fit on a vinyl album (33 or 45 rmp; 7, 10 or 12')
+This script would help loose music bands without a major edition house that would decide for then how to fit their songs on a vinyl of a given time space in order to release an album LP or EP...
 
 ## Usage
 ```
@@ -8,11 +9,11 @@ usage: plan_album.py [-h] -songs [SONGS [SONGS ...]]
                      [DURATIONS [DURATIONS ...]] [-min [MIN]] [-max [MAX]]
                      -out OUT [-waste [WASTE]] [-must [MUST [MUST ...]]]
                      [-sep [SEP]]
-
 ```
 
-### Optional arguments
 
+### Optional arguments
+```
   -h, --help            show help message and exit
   -songs [SONGS [SONGS ...]]
                         Songs names in arbitrary order (',,,'-separated, yes
@@ -41,7 +42,37 @@ usage: plan_album.py [-h] -songs [SONGS [SONGS ...]]
   -must [MUST [MUST ...]]
                         The song(s) that must be released in the vinyl
   -sep [SEP]            Separator for the song names (default = ',,,')
+  
   ```
+
+#### Example
+
+Let's say my band is called **Deftones** and I want to release an album of 9 songs that I will call **Around the fur** :)
+The songs and their durations are the following:
+- My Own Summer Shove It [3:35] ---> as parentheses are not allowed I changed the original name "My Own Summer (Shove It)"
+- Lhabia [4:11]
+- Mascara [3:45]
+- Around the Fur [3:31]
+- Rickets [2:42]
+- Be Quiet and Drive Far Away [5:08] ---> as parentheses are not allowed I changed the original name "Be Quiet and Drive (Far Away)"
+- Lotion [3:57]
+- Dai the Flu [4:36]
+- Headup [6:13]
+
+If I do this command:
+```
+python2.7 plan_album.py -songs My Own Summer Shove It,,, Lhabia,,, Mascara,,, Around the Fur,,, Rickets,,, Be Quiet and Drive Far Away,,, Lotion,,,Dai the Flu,,, Headup -durations 3:35 4:11 3:45 3:31 2:42 5:08 3:57 4:36 6:13 -out Around_the_fur.txt+
+```
+It will map the songs to their durations in the input orders (options ```-songs``` and ```-durations```) and ask you to confirm you want to search for these vinyl album formats (according to what has been entered to ```-vinyl```):
+ - 33 RPM / 7' [14 minutes - 7/side]
+ - 33 RPM / 10' [26 minutes - 13/side]
+ - 33 RPM / 12' [42 minutes - 21/side]
+ - 45 RPM / 10' [20 minutes - 10/side]
+ - 45 RPM / 12' [30 minutes - 15/side]
+
+The ```-out``` option is compulsory and the output file name could logically be the albun name (here Around_the_fur.txt+). You noticed the ```+``` at the end of the file name: this specifies the script to ouptut one file per vinyl format (because there could be a lot of combinations). The algorithm is brute force - no fancy heuristic to solve this problem :)
+
+The result here is that the Deftones songs only fit on a 33 RPM / 12' vinyl, and I bet it does!
 
 #### Requirements
 Python2.7
